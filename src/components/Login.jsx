@@ -143,9 +143,9 @@ function Login() {
                   Remember me
                 </label>
               </div>
-              <a href="#" className="forgot-password-link">
+            
                 Forgot Password?
-              </a>
+             
             </div>
 
             {/* Login Button */}
@@ -202,30 +202,21 @@ function Login() {
             </div>
           </form>
 
-          {/* Register Link */}
-          <div className="register-section">
-            <p className="mb-0">
-              Don't have an account?{" "}
-              <a href="/register" className="register-link">
-                Create one now
-              </a>
-            </p>
-          </div>
+         
 
           {/* Footer */}
           <div className="login-footer">
-            <a href="#" className="footer-link">
+      
               <i className="fas fa-question-circle me-1"></i>
               Help
-            </a>
+         
             <span className="separator">•</span>
-            <a href="#" className="footer-link">
+          
               Privacy Policy
-            </a>
+     
             <span className="separator">•</span>
-            <a href="#" className="footer-link">
               Terms of Service
-            </a>
+          
           </div>
         </div>
 
