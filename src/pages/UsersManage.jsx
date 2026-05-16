@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./UsersManage.css";
 import Sidebar from "../components/Sidebar";
-import { ToastBar, toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 function UsersManage() {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
+//   const [loading, setLoading] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -189,6 +189,7 @@ function UsersManage() {
   return (
     <Sidebar>
            <div className="users-manage-container">
+            <Toaster position="top-right" reverseOrder={false} />
       <div className="users-header ms-3">
         <div className="users-title-section">
           <h1 className="users-title">
@@ -343,6 +344,7 @@ function UsersManage() {
                       <button
                         className="btn-action btn-delete"
                         title="Delete user"
+                        onClick={handleDeleteUser}
                       >
                         <i className="fas fa-trash"></i>
                       </button>
