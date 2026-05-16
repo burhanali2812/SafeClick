@@ -43,7 +43,7 @@ function UsersManage() {
         (key) => params[key] === undefined && delete params[key],
       );
 
-      const response = await axios.get("http://localhost:5000/api/users", {
+      const response = await axios.get("https://safe-click-backend.vercel.app/api/users", {
         params,
         headers: {
           Authorization: `Bearer ${token}`,
@@ -106,7 +106,7 @@ function UsersManage() {
     setSubmitting(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/register",
+        "https://safe-click-backend.vercel.app/api/users/register",
         {
           name: formData.name,
           email: formData.email,
@@ -136,7 +136,7 @@ function UsersManage() {
   const handleDeleteUser = async (userId) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/users/profile`, {
+        await axios.delete(`https://safe-click-backend.vercel.app/api/users/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
