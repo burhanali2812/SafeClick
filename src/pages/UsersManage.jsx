@@ -26,7 +26,7 @@ function UsersManage() {
 
   const token = localStorage.getItem("token");
 
-  // Fetch users
+
   const fetchUsers = async (page = 1) => {
     setLoadingUsers(true);
   
