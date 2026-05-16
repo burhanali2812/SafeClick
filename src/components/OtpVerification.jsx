@@ -200,7 +200,8 @@ return (
               Enter it below to verify your identity.
             </p>
 
-            <p
+            {canResend && (
+                <p
               style={{
                 opacity: 0.7,
                 fontSize: "clamp(0.75rem, 2.5vw, 0.95rem)",
@@ -210,12 +211,13 @@ return (
               <i className="fas fa-clock me-2"></i>
               OTP will expire in
             </p>
+            )}
 
             {/* TIMER */}
             <div className="mt-3">
 
               {!canResend ? (
-                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center w-100">
 
                   <div
                     style={{
@@ -229,6 +231,7 @@ return (
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
+                      margin: "0 auto",
                     }}
                   >
                     {formatTime(timer)}
@@ -270,7 +273,7 @@ return (
     <input
       key={index}
       type="text"
-      inputMode="numeric"
+      inputMode="alphanumeric"
       maxLength="1"
       className="otp-box text-center"
       value={otp[index]}
