@@ -189,7 +189,7 @@ function UsersManage() {
   return (
     <Sidebar>
            <div className="users-manage-container">
-      <div className="users-header">
+      <div className="users-header ms-3">
         <div className="users-title-section">
           <h1 className="users-title">
             <i className="fas fa-users"></i>
@@ -271,7 +271,8 @@ function UsersManage() {
             <p>Add your first user to get started</p>
           </div>
         ) : (
-          <table className="users-table">
+         <div className="table-responsive">
+             <table className="users-table">
             <thead>
               <tr>
                 <th>Name</th>
@@ -351,6 +352,7 @@ function UsersManage() {
               ))}
             </tbody>
           </table>
+            </div>
         )}
       </div>
 

@@ -49,12 +49,13 @@ function Login() {
       );
 
       if (response.data.success) {
+        localStorage.clear(); // Clear any existing data in localStorage
         // Store token in localStorage
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("user", JSON.stringify(response.data.user));
 
         // Redirect to dashboard
-        navigate("/dashboard");
+        navigate("/otp-verification");
       }
     } catch (err) {
       toast.error(
@@ -213,7 +214,7 @@ function Login() {
             <span className="separator">•</span>
           
               Privacy Policy
-     
+            
             <span className="separator">•</span>
               Terms of Service
           
