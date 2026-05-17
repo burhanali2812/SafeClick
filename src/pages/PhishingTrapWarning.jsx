@@ -147,7 +147,7 @@ function PhishingTrapWarning() {
   };
 
   return (
-    <Sidebar>
+
       <div className="phishing-trap-page">
         <div className="phishing-trap-alert">
           <div className="trap-alert-icon">
@@ -286,24 +286,15 @@ function PhishingTrapWarning() {
             )}
 
             <div className="quiz-actions">
-              <Link to="/awareness-simulations" className="btn-soft">
-                <i className="fas fa-arrow-left"></i>
-                Back to Awareness
+              <Link to="/signup" className="btn-primary-soft">
+                <i className="fas fa-arrow-right"></i>
+                Take More Quiz
               </Link>
-              <button
-                onClick={() => {
-                  setAnswers(Array(quizQuestions.length).fill(null));
-                }}
-                className="btn-primary-soft"
-              >
-                <i className="fas fa-redo"></i>
-                Restart Quiz
-              </button>
             </div>
           </div>
         )}
       </div>
-    </Sidebar>
+  
   );
 }
 
