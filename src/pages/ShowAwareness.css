@@ -1,0 +1,305 @@
+.awareness-page {
+  min-height: calc(100vh - 32px);
+  padding: 24px;
+  background: linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+  color: #10203a;
+}
+
+.awareness-hero {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 20px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+.awareness-hero-copy,
+.awareness-hero-panel,
+.quiz-card,
+.join-panel {
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid #dbe6f4;
+  border-radius: 24px;
+  box-shadow: 0 14px 32px rgba(31, 63, 102, 0.08);
+}
+
+.awareness-hero-copy {
+  padding: 28px;
+}
+
+.awareness-pill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #eaf1fb;
+  color: #1f3f66;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.awareness-hero-copy h1 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.08;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #17324d;
+}
+
+.awareness-hero-copy p {
+  color: #5f6f87;
+  font-size: 1.03rem;
+  line-height: 1.7;
+  max-width: 58ch;
+}
+
+.awareness-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.awareness-cta-btn,
+.join-btn {
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-weight: 700;
+}
+
+.awareness-hero-panel {
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+}
+
+.awareness-stat-card,
+.awareness-risk-card,
+.awareness-join-card {
+  border-radius: 20px;
+  padding: 18px;
+  background: #fbfdff;
+  border: 1px solid #e1e9f5;
+}
+
+.awareness-stat-card span,
+.awareness-risk-card span {
+  display: block;
+  color: #6b7a8f;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.awareness-stat-card strong,
+.awareness-risk-card strong {
+  font-size: 2rem;
+  color: #17324d;
+}
+
+.awareness-stat-card small,
+.awareness-risk-card small {
+  display: block;
+  margin-top: 8px;
+  color: #6b7a8f;
+  font-size: 0.88rem;
+}
+
+.awareness-progress-track {
+  width: 100%;
+  height: 10px;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: #e8eef7;
+  overflow: hidden;
+}
+
+.awareness-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #4a7fd4, #6f9de8);
+  transition: width 0.25s ease;
+}
+
+.awareness-risk-card.good {
+  background: #edf8f2;
+  border-color: #cdeed9;
+}
+
+.awareness-risk-card.warn {
+  background: #fff8e8;
+  border-color: #f6e1a8;
+}
+
+.awareness-risk-card.danger {
+  background: #fff1f1;
+  border-color: #f5c3c3;
+}
+
+.awareness-join-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.awareness-join-card i {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eaf1fb;
+  color: #1f3f66;
+  font-size: 1.2rem;
+  flex: 0 0 auto;
+}
+
+.awareness-join-card h3 {
+  margin-bottom: 6px;
+  color: #17324d;
+}
+
+.awareness-join-card p {
+  margin: 0;
+  color: #6b7a8f;
+}
+
+.awareness-section {
+  margin-bottom: 24px;
+}
+
+.section-header {
+  margin-bottom: 16px;
+}
+
+.section-header h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  margin-bottom: 6px;
+  color: #17324d;
+}
+
+.section-header p {
+  margin: 0;
+  color: #5f6f87;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.tip-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #dbe6f4;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 10px 24px rgba(31, 63, 102, 0.05);
+}
+
+.tip-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: #eaf1fb;
+  color: #1f3f66;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  font-size: 1.1rem;
+}
+
+.tip-card h3 {
+  font-size: 1.02rem;
+  color: #17324d;
+  margin-bottom: 8px;
+}
+
+.tip-card p {
+  margin: 0;
+  color: #5f6f87;
+  line-height: 1.6;
+}
+
+.quiz-card {
+  padding: 24px;
+}
+
+.quiz-question + .quiz-question {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e7eef7;
+}
+
+.quiz-question h3 {
+  font-size: 1.02rem;
+  color: #17324d;
+  margin-bottom: 12px;
+}
+
+.quiz-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.quiz-option {
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.quiz-footer-note {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #eef5ff;
+  color: #35506f;
+  border: 1px solid #d8e3f3;
+  font-weight: 600;
+}
+
+.join-panel {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 22px;
+}
+
+.join-panel h2 {
+  color: #17324d;
+  margin-bottom: 6px;
+}
+
+.join-panel p {
+  margin: 0;
+  color: #5f6f87;
+  max-width: 62ch;
+}
+
+@media (max-width: 992px) {
+  .awareness-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .awareness-page {
+    padding: 16px;
+  }
+
+  .awareness-hero-copy,
+  .awareness-hero-panel,
+  .quiz-card,
+  .join-panel {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .join-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
