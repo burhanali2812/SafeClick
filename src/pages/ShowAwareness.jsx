@@ -117,6 +117,7 @@ function ShowAwareness() {
   const [answers, setAnswers] = useState(
     Array(quizQuestions.length).fill(null),
   );
+  const [warningMessage, setWarningMessage] = useState("");
   const [quizSummary, setQuizSummary] = useState({
     score: 0,
     riskLabel: "High",
@@ -129,6 +130,13 @@ function ShowAwareness() {
     setAnswers((prev) => {
       const next = [...prev];
       next[questionIndex] = value;
+
+      const isCorrect = quizQuestions[questionIndex].options[value]?.isCorrect;
+      setWarningMessage(
+        isCorrect
+          ? ""
+          : "Warning: You clicked on a suspicious link or unsafe answer. Please review the security guidance below.",
+      );
 
       const answeredCount = next.filter((answer) => answer !== null).length;
       const correctCount = next.reduce((sum, answer, index) => {
@@ -160,8 +168,14 @@ function ShowAwareness() {
   };
 
   return (
+    <div className="awareness-page">
+      {warningMessage ? (
+        <div className="awareness-warning-banner" role="alert">
+          <i className="fas fa-triangle-exclamation"></i>
+          <span>{warningMessage}</span>
+        </div>
+      ) : null}
 
-      <div className="awareness-page">
         <section className="awareness-hero">
           <div className="awareness-hero-copy">
             <span className="awareness-pill">Awareness Services</span>
@@ -278,25 +292,16 @@ function ShowAwareness() {
               Your live security score and risk level update as you answer each
               question.
             </div>
+
+            <div className="quiz-cta-wrap">
+              <Link to="/signup" className="btn btn-primary quiz-cta-btn">
+                Take More Quiz
+              </Link>
+            </div>
           </div>
         </section>
 
-        <section className="awareness-section join-section">
-          <div className="join-panel">
-            <div>
-              <h2>Ready to join Safe Click?</h2>
-              <p>
-                Create your account to get awareness training, campaign
-                simulations, and security guidance.
-              </p>
-            </div>
-            <Link to="/signup" className="btn btn-primary join-btn">
-              Go to Signup Page
-            </Link>
-          </div>
-        </section>
-      </div>
-  
+    </div>
   );
 }
 

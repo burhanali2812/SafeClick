@@ -5,6 +5,25 @@
   color: #10203a;
 }
 
+.awareness-warning-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: #fff4f4;
+  color: #a12a2a;
+  border: 1px solid #f2c1c1;
+  box-shadow: 0 10px 22px rgba(161, 42, 42, 0.08);
+  font-weight: 600;
+}
+
+.awareness-warning-banner i {
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+}
+
 .awareness-hero {
   display: grid;
   grid-template-columns: 1.3fr 0.9fr;
@@ -258,6 +277,18 @@
   color: #35506f;
   border: 1px solid #d8e3f3;
   font-weight: 600;
+}
+
+.quiz-cta-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.quiz-cta-btn {
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-weight: 700;
 }
 
 .join-panel {
