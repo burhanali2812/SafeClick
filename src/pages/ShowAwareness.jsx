@@ -176,131 +176,123 @@ function ShowAwareness() {
         </div>
       ) : null}
 
-        <section className="awareness-hero">
-          <div className="awareness-hero-copy">
-            <span className="awareness-pill">Awareness Services</span>
-            <h1>
-              Learn phishing awareness and keep your security score strong.
-            </h1>
-            <p>
-              Safe Click helps you build safer habits, test your knowledge with
-              a live quiz, and understand your current risk level before you
-              join the platform.
-            </p>
+      <section className="awareness-hero">
+        <div className="awareness-hero-copy">
+          <span className="awareness-pill">Awareness Services</span>
+          <h1>Learn phishing awareness and keep your security score strong.</h1>
+          <p>
+            Safe Click helps you build safer habits, test your knowledge with a
+            live quiz, and understand your current risk level before you join
+            the platform.
+          </p>
 
-            <div className="awareness-cta-group">
-              <Link to="/signup" className="btn btn-primary awareness-cta-btn">
-                Join Safe Click
-              </Link>
-              <a
-                href="#quiz"
-                className="btn btn-outline-dark awareness-cta-btn"
-              >
-                Solve Quiz
-              </a>
+          <div className="awareness-cta-group">
+            <Link to="/signup" className="btn btn-primary awareness-cta-btn">
+              Join Safe Click
+            </Link>
+            <a href="#quiz" className="btn btn-outline-dark awareness-cta-btn">
+              Solve Quiz
+            </a>
+          </div>
+        </div>
+
+        <div className="awareness-hero-panel">
+          <div className="awareness-stat-card">
+            <span>Live Security Score</span>
+            <strong>{quizSummary.score}%</strong>
+            <div className="awareness-progress-track">
+              <div
+                className="awareness-progress-fill"
+                style={{ width: `${quizSummary.score}%` }}
+              />
+            </div>
+            <small>
+              {quizSummary.correctCount} of {quizQuestions.length} correct
+              answers
+            </small>
+          </div>
+          <div className={`awareness-risk-card ${quizSummary.riskTone}`}>
+            <span>Risk Level</span>
+            <strong>{quizSummary.riskLabel}</strong>
+            <small>{quizSummary.answeredCount} question(s) answered</small>
+          </div>
+          <div className="awareness-join-card">
+            <i className="fas fa-user-shield"></i>
+            <div>
+              <h3>Join Safe Click</h3>
+              <p>Protect your team with phishing training and secure habits.</p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="awareness-hero-panel">
-            <div className="awareness-stat-card">
-              <span>Live Security Score</span>
-              <strong>{quizSummary.score}%</strong>
-              <div className="awareness-progress-track">
-                <div
-                  className="awareness-progress-fill"
-                  style={{ width: `${quizSummary.score}%` }}
-                />
+      <section className="awareness-section">
+        <div className="section-header">
+          <h2>Security Awareness Services</h2>
+          <p>
+            These practical tips help you avoid phishing, malware, and unsafe
+            account access.
+          </p>
+        </div>
+
+        <div className="tips-grid">
+          {awarenessTips.map((tip) => (
+            <article key={tip.title} className="tip-card">
+              <div className="tip-icon">
+                <i className={`fas ${tip.icon}`}></i>
               </div>
-              <small>
-                {quizSummary.correctCount} of {quizQuestions.length} correct
-                answers
-              </small>
-            </div>
-            <div className={`awareness-risk-card ${quizSummary.riskTone}`}>
-              <span>Risk Level</span>
-              <strong>{quizSummary.riskLabel}</strong>
-              <small>{quizSummary.answeredCount} question(s) answered</small>
-            </div>
-            <div className="awareness-join-card">
-              <i className="fas fa-user-shield"></i>
-              <div>
-                <h3>Join Safe Click</h3>
-                <p>
-                  Protect your team with phishing training and secure habits.
-                </p>
+              <h3>{tip.title}</h3>
+              <p>{tip.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="quiz" className="awareness-section quiz-section">
+        <div className="section-header">
+          <h2>Live Security Quiz</h2>
+          <p>
+            Answer a few questions and watch your security score and risk level
+            update instantly.
+          </p>
+        </div>
+
+        <div className="quiz-card">
+          {quizQuestions.map((item, questionIndex) => (
+            <div key={item.question} className="quiz-question">
+              <h3>
+                {questionIndex + 1}. {item.question}
+              </h3>
+              <div className="quiz-options">
+                {item.options.map((option, optionIndex) => {
+                  const active = answers[questionIndex] === optionIndex;
+                  return (
+                    <button
+                      key={option.label}
+                      type="button"
+                      className={`btn quiz-option ${active ? "btn-primary" : "btn-outline-dark"}`}
+                      onClick={() => handleAnswer(questionIndex, optionIndex)}
+                    >
+                      {option.label}
+                    </button>
+                  );
+                })}
               </div>
             </div>
-          </div>
-        </section>
+          ))}
 
-        <section className="awareness-section">
-          <div className="section-header">
-            <h2>Security Awareness Services</h2>
-            <p>
-              These practical tips help you avoid phishing, malware, and unsafe
-              account access.
-            </p>
+          <div className="quiz-footer-note">
+            Your live security score and risk level update as you answer each
+            question.
           </div>
 
-          <div className="tips-grid">
-            {awarenessTips.map((tip) => (
-              <article key={tip.title} className="tip-card">
-                <div className="tip-icon">
-                  <i className={`fas ${tip.icon}`}></i>
-                </div>
-                <h3>{tip.title}</h3>
-                <p>{tip.description}</p>
-              </article>
-            ))}
+          <div className="quiz-cta-wrap">
+            <Link to="/signup" className="btn btn-primary quiz-cta-btn">
+              Take More Quiz
+            </Link>
           </div>
-        </section>
-
-        <section id="quiz" className="awareness-section quiz-section">
-          <div className="section-header">
-            <h2>Live Security Quiz</h2>
-            <p>
-              Answer a few questions and watch your security score and risk
-              level update instantly.
-            </p>
-          </div>
-
-          <div className="quiz-card">
-            {quizQuestions.map((item, questionIndex) => (
-              <div key={item.question} className="quiz-question">
-                <h3>
-                  {questionIndex + 1}. {item.question}
-                </h3>
-                <div className="quiz-options">
-                  {item.options.map((option, optionIndex) => {
-                    const active = answers[questionIndex] === optionIndex;
-                    return (
-                      <button
-                        key={option.label}
-                        type="button"
-                        className={`btn quiz-option ${active ? "btn-primary" : "btn-outline-dark"}`}
-                        onClick={() => handleAnswer(questionIndex, optionIndex)}
-                      >
-                        {option.label}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-
-            <div className="quiz-footer-note">
-              Your live security score and risk level update as you answer each
-              question.
-            </div>
-
-            <div className="quiz-cta-wrap">
-              <Link to="/signup" className="btn btn-primary quiz-cta-btn">
-                Take More Quiz
-              </Link>
-            </div>
-          </div>
-        </section>
-
+        </div>
+      </section>
     </div>
   );
 }

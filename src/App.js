@@ -9,6 +9,7 @@ import OtpVerification from "./components/OtpVerification";
 import EmailTemplate from "./pages/EmailTemplate";
 import CampaignTemplate from "./pages/CampaignTemplate";
 import ShowAwareness from "./pages/ShowAwareness";
+import PhishingTrapWarning from "./pages/PhishingTrapWarning";
 import Signup from "./pages/Signup";
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/email-templates" element={<EmailTemplate />} />
       <Route path="/campaigns" element={<CampaignTemplate />} />
       <Route path="/awareness-simulations" element={<ShowAwareness />} />
+      <Route path="/phishing-trap" element={<PhishingTrapWarning />} />
       <Route path="/otp-verification" element={<OtpVerification />} />
     </Routes>
   );
