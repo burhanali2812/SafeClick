@@ -529,11 +529,11 @@ function SimulationDashboard() {
                           {row.browser || "-"}
                         </td>
                         <td className="simulation-cell-muted">
-                          {row.location?.city ||
+                          {row.location?.area ||
                           row.location?.region ||
                           row.location?.country
                             ? [
-                                row.location?.city,
+                                row.location?.area,
                                 row.location?.region,
                                 row.location?.country,
                               ]
