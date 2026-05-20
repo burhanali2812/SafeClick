@@ -43,7 +43,8 @@ function Sidebar({ children }) {
     }
   };
 
-  const menuItems = [
+  const menu = {
+    admin: [
     {
       title: "Dashboard",
       icon: "fa-solid fa-gauge",
@@ -69,12 +70,6 @@ function Sidebar({ children }) {
     },
 
     {
-      title: "Awareness Simulations",
-      icon: "fa-solid fa-computer",
-      href: "/awareness-simulations",
-    },
-
-    {
       title: "Simulation Results",
       icon: "fa-solid fa-chart-column",
       href: "/simulation-results",
@@ -85,7 +80,27 @@ function Sidebar({ children }) {
       icon: "fa-solid fa-question-circle",
       href: "/quizzes",
     },
-  ];
+
+    {
+      title: "Solve Quiz",
+      icon: "fa-solid fa-pen-to-square",
+      href: "/solve-quiz",
+    },
+  ],
+      user: [
+        {
+          title: "Dashboard",
+          icon: "fa-solid fa-gauge",
+          href: "/user-dashboard",
+        },
+        {
+          title: "Solve Quiz",
+          icon: "fa-solid fa-pen-to-square",
+          href: "/solve-quiz",
+        },
+      ],
+  };
+  const menuItems = userRole === "admin" ? menu.admin : menu.user;
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
 

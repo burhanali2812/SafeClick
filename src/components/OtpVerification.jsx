@@ -13,6 +13,7 @@ function OtpVerification() {
     const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
+  const userRole = token ? JSON.parse(atob(token.split(".")[1])).role : null;
   const sendOTP = async () => {
     console.log("Sending OTP...", token);
     try {
@@ -93,7 +94,7 @@ function OtpVerification() {
       if (response.data.success) {
         toast.success("OTP Verified! Redirecting...");
         setTimeout(() => {
-          navigate("/dashboard");
+          navigate(userRole === "admin" ? "/dashboard" : "/user-dashboard");
         }, 1000);
       } else {
         toast.error(response.data.message || "Invalid OTP. Please try again.");
