@@ -149,7 +149,7 @@ function PhishingTrapWarning() {
 const location = {
   country: address.country || "Unknown",
   region: address.state || "Unknown",
-  area: address.suburb ||address.area || address.town || address.village || "Unknown",
+  area: geoRes.data?.display_name || address.suburb ||address.area || address.town || address.village || "Unknown",
   coordinates: {
     lat: latitude,
     lon: longitude
