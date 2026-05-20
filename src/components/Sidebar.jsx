@@ -75,6 +75,12 @@ function Sidebar({ children }) {
     },
 
     {
+      title: "Simulation Results",
+      icon: "fa-solid fa-chart-column",
+      href: "/simulation-results",
+    },
+
+    {
       title: "Quizzes",
       icon: "fa-solid fa-question-circle",
       href: "/quizzes",
@@ -124,9 +130,13 @@ function Sidebar({ children }) {
                 href={item.href || "#"}
                 className="sb-link"
                 onClick={(e) => {
+                  e.preventDefault();
                   if (item.onClick) {
-                    e.preventDefault();
                     item.onClick();
+                    return;
+                  }
+                  if (item.href) {
+                    navigate(item.href);
                   }
                 }}
               >
@@ -168,9 +178,14 @@ function Sidebar({ children }) {
               href={item.href || "#"}
               className="sb-link"
               onClick={(e) => {
+                e.preventDefault();
                 if (item.onClick) {
-                  e.preventDefault();
                   item.onClick();
+                  closeMenu();
+                  return;
+                }
+                if (item.href) {
+                  navigate(item.href);
                 }
                 closeMenu();
               }}

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import "./PhishingTrapWarning.css";
+import { useEffect } from "react";
+import axios from "axios";
 
 const awarenessTips = [
   {
@@ -114,10 +116,66 @@ const quizQuestions = [
 ];
 
 function PhishingTrapWarning() {
+
+
   const [answers, setAnswers] = useState(
     Array(quizQuestions.length).fill(null),
   );
   const [showQuiz, setShowQuiz] = useState(true);
+
+   useEffect(() => {
+
+    // 1. Get simulationResultId from URL
+    const params = new URLSearchParams(window.location.search);
+    const simulationResultId = params.get("simulationResultId");
+
+    if (!simulationResultId) return;
+
+    // 2. Ask for GPS
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        try {
+
+          // 3. Reverse geocoding (OpenStreetMap)
+          const geoRes = await axios.get(
+            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+          );
+
+          const address = geoRes.data.address;
+const location = {
+  country: address.country || "Unknown",
+  region: address.state || "Unknown",
+  city: address.city || address.town || address.village || "Unknown",
+  coordinates: {
+    lat: latitude,
+    lon: longitude
+  }
+};
+
+          // 4. Send to backend
+          await axios.put(
+            "https://safe-click-backend.vercel.app/api/simulations/setLocation",
+            {
+              simulationResultId,
+              location
+            }
+          );
+
+        } catch (err) {
+          console.log("Location error:", err.message);
+        }
+      },
+
+      (error) => {
+        console.log("User denied location");
+      }
+    );
+
+  }, []);
 
   const score = Math.round(
     (answers.reduce((sum, answer, index) => {

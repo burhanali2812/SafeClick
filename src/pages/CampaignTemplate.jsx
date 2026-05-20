@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import "./CampaignTemplate.css";
 
@@ -17,6 +18,7 @@ const initialForm = {
 };
 
 function CampaignTemplate() {
+  const navigate = useNavigate();
   const [campaigns, setCampaigns] = useState([]);
   const [emailTemplates, setEmailTemplates] = useState([]);
   const [users, setUsers] = useState([]);
@@ -192,7 +194,7 @@ function CampaignTemplate() {
       if (response.data?.success) {
         toast.success("Campaign created successfully");
         closeModal();
-        fetchCampaigns();
+        navigate(`/simulation-results/${response.data.data._id}`);
       } else {
         toast.error(response.data?.message || "Failed to create campaign");
       }

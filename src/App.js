@@ -11,6 +11,7 @@ import CampaignTemplate from "./pages/CampaignTemplate";
 import ShowAwareness from "./pages/ShowAwareness";
 import PhishingTrapWarning from "./pages/PhishingTrapWarning";
 import Signup from "./pages/Signup";
+import SimulationDashboard from "./pages/SimulationDashboard";
 function App() {
   return (
     <Routes>
@@ -21,6 +22,11 @@ function App() {
       <Route path="/email-templates" element={<EmailTemplate />} />
       <Route path="/campaigns" element={<CampaignTemplate />} />
       <Route path="/awareness-simulations" element={<ShowAwareness />} />
+      <Route path="/simulation-results" element={<SimulationDashboard />} />
+      <Route
+        path="/simulation-results/:campaignId"
+        element={<SimulationDashboard />}
+      />
       <Route path="/phishing-trap" element={<PhishingTrapWarning />} />
       <Route path="/otp-verification" element={<OtpVerification />} />
     </Routes>
