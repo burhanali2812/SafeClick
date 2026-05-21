@@ -203,6 +203,18 @@ function Login() {
             </div>
           </form>
 
+          {/* Signup Redirect */}
+          <div className="signup-redirect mb-3">
+            <span>Don't have an account?</span>
+            <button
+              type="button"
+              className="btn btn-link ms-2 p-0 signup-btn"
+              onClick={() => navigate("/signup")}
+            >
+              Sign Up
+            </button>
+          </div>
+
          
 
           {/* Footer */}
