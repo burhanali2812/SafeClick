@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Sidebar.css";
 import { useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { href, useNavigate } from "react-router-dom";
 function Sidebar({ children }) {
   const [lengthOfPendingLeaves, setLengthOfPendingLeaves] = useState(null);
   const navigate = useNavigate();
@@ -81,11 +81,11 @@ function Sidebar({ children }) {
       href: "/quizzes",
     },
 
-    {
-      title: "Solve Quiz",
-      icon: "fa-solid fa-pen-to-square",
-      href: "/solve-quiz",
-    },
+ 
+      {
+          title: "Logout",
+          icon : "fa-solid fa-right-from-bracket",
+        }
   ],
       user: [
         {
@@ -98,6 +98,10 @@ function Sidebar({ children }) {
           icon: "fa-solid fa-pen-to-square",
           href: "/solve-quiz",
         },
+        {
+          title: "Logout",
+          icon : "fa-solid fa-right-from-bracket",
+        }
       ],
   };
   const menuItems = userRole === "admin" ? menu.admin : menu.user;
@@ -195,6 +199,12 @@ function Sidebar({ children }) {
               onClick={(e) => {
                 e.preventDefault();
                 if (item.onClick) {
+                  item.onClick();
+                  closeMenu();
+                  return;
+                }
+                if (item.title === "Logout") {
+                  item.onClick = handlelogOut;
                   item.onClick();
                   closeMenu();
                   return;
