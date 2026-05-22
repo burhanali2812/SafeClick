@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {toast, Toaster} from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 import axios from "axios";
 import "./Login.css";
 
@@ -82,7 +82,6 @@ function Login() {
 
           {/* Form */}
           <form onSubmit={handleLogin} className="login-form">
-
             {/* Email Field */}
             <div className="form-group mb-3">
               <label htmlFor="email" className="form-label">
@@ -144,9 +143,7 @@ function Login() {
                   Remember me
                 </label>
               </div>
-            
-                Forgot Password?
-             
+              Forgot Password?
             </div>
 
             {/* Login Button */}
@@ -215,21 +212,14 @@ function Login() {
             </button>
           </div>
 
-         
-
           {/* Footer */}
           <div className="login-footer">
-      
-              <i className="fas fa-question-circle me-1"></i>
-              Help
-         
+            <i className="fas fa-question-circle me-1"></i>
+            Help
             <span className="separator">•</span>
-          
-              Privacy Policy
-            
+            Privacy Policy
             <span className="separator">•</span>
-              Terms of Service
-          
+            Terms of Service
           </div>
         </div>
 

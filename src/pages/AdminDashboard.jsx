@@ -180,7 +180,8 @@ function AdminDashboard() {
             <span className="admin-kicker">Admin Dashboard</span>
             <h1>Complete app overview in one place</h1>
             <p>
-              Track users, campaigns, templates, quiz activity, and security risk across the full platform.
+              Track users, campaigns, templates, quiz activity, and security
+              risk across the full platform.
             </p>
           </div>
 
@@ -201,19 +202,27 @@ function AdminDashboard() {
         </section>
 
         {loading ? (
-          <section className="admin-state-card">Loading admin summary...</section>
+          <section className="admin-state-card">
+            Loading admin summary...
+          </section>
         ) : error ? (
           <section className="admin-state-card error">{error}</section>
         ) : (
           <>
             <section className="admin-overview-grid">
               {overviewCards.map((card) => (
-                <article key={card.label} className={`admin-overview-card ${card.tone}`}>
+                <article
+                  key={card.label}
+                  className={`admin-overview-card ${card.tone}`}
+                >
                   <div className="admin-overview-icon">
                     <i className={`fa-solid ${card.icon}`}></i>
                   </div>
                   <span>{card.label}</span>
-                  <strong>{formatNumber(card.value)}{card.suffix || ""}</strong>
+                  <strong>
+                    {formatNumber(card.value)}
+                    {card.suffix || ""}
+                  </strong>
                   <p>{card.meta}</p>
                 </article>
               ))}
@@ -266,7 +275,10 @@ function AdminDashboard() {
 
                 <div className="admin-status-grid">
                   {userStatusCards.map((item) => (
-                    <div key={item.label} className={`admin-status-card ${item.tone}`}>
+                    <div
+                      key={item.label}
+                      className={`admin-status-card ${item.tone}`}
+                    >
                       <span>{item.label}</span>
                       <strong>{formatNumber(item.value)}</strong>
                     </div>
@@ -306,15 +318,21 @@ function AdminDashboard() {
                         <tr key={user._id}>
                           <td>
                             <strong>{user.name || "Unnamed User"}</strong>
-                            <div className="admin-table-desc">{user.email || "-"}</div>
+                            <div className="admin-table-desc">
+                              {user.email || "-"}
+                            </div>
                           </td>
                           <td>
-                            <span className={`admin-pill ${statusTone(user.accountStatus)}`}>
+                            <span
+                              className={`admin-pill ${statusTone(user.accountStatus)}`}
+                            >
                               {user.accountStatus || "-"}
                             </span>
                           </td>
                           <td>
-                            <span className={`admin-pill ${riskTone(user.riskLevel)}`}>
+                            <span
+                              className={`admin-pill ${riskTone(user.riskLevel)}`}
+                            >
                               {user.riskLevel || "-"}
                             </span>
                           </td>
@@ -359,7 +377,8 @@ function AdminDashboard() {
                           <td>
                             <strong>{campaign.title || "Campaign"}</strong>
                             <div className="admin-table-desc">
-                              {campaign.description || "No description provided."}
+                              {campaign.description ||
+                                "No description provided."}
                             </div>
                           </td>
                           <td>{campaign.templateName || "-"}</td>
@@ -403,11 +422,19 @@ function AdminDashboard() {
                           <tr key={quiz._id}>
                             <td>
                               <strong>{quiz.title || "Quiz"}</strong>
-                              <div className="admin-table-desc">{quiz.difficultyLevel || "-"}</div>
+                              <div className="admin-table-desc">
+                                {quiz.difficultyLevel || "-"}
+                              </div>
                             </td>
-                            <td>{Array.isArray(quiz.questions) ? quiz.questions.length : 0}</td>
                             <td>
-                              <span className={`admin-pill ${quiz.isPublished ? "success" : "neutral"}`}>
+                              {Array.isArray(quiz.questions)
+                                ? quiz.questions.length
+                                : 0}
+                            </td>
+                            <td>
+                              <span
+                                className={`admin-pill ${quiz.isPublished ? "success" : "neutral"}`}
+                              >
                                 {quiz.isPublished ? "Published" : "Draft"}
                               </span>
                             </td>
@@ -448,8 +475,12 @@ function AdminDashboard() {
                         recentQuizAttempts.map((attempt) => (
                           <tr key={attempt._id}>
                             <td>
-                              <strong>{attempt.userId?.name || "Unknown User"}</strong>
-                              <div className="admin-table-desc">{attempt.userId?.email || "-"}</div>
+                              <strong>
+                                {attempt.userId?.name || "Unknown User"}
+                              </strong>
+                              <div className="admin-table-desc">
+                                {attempt.userId?.email || "-"}
+                              </div>
                             </td>
                             <td>{attempt.quizTitle || "Quiz Attempt"}</td>
                             <td>{formatNumber(attempt.score)}</td>
@@ -491,11 +522,17 @@ function AdminDashboard() {
                       recentTemplates.map((template) => (
                         <tr key={template._id}>
                           <td>
-                            <strong>{template.templateName || "Template"}</strong>
-                            <div className="admin-table-desc">{template.subject || "-"}</div>
+                            <strong>
+                              {template.templateName || "Template"}
+                            </strong>
+                            <div className="admin-table-desc">
+                              {template.subject || "-"}
+                            </div>
                           </td>
                           <td>
-                            <span className={`admin-pill ${template.isActive ? "success" : "neutral"}`}>
+                            <span
+                              className={`admin-pill ${template.isActive ? "success" : "neutral"}`}
+                            >
                               {template.isActive ? "Active" : "Inactive"}
                             </span>
                           </td>
